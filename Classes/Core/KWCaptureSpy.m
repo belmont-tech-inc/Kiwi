@@ -39,6 +39,7 @@
 
 - (void)object:(id)anObject didReceiveInvocation:(NSInvocation *)anInvocation {
     if (!_argument) {
+        [self willChangeValueForKey:@"argument"];
         NSMethodSignature *signature = [anInvocation methodSignature];
         const char *objCType = [signature messageArgumentTypeAtIndex:_argumentIndex];
         if (KWObjCTypeIsObject(objCType) || KWObjCTypeIsClass(objCType)) {
@@ -58,6 +59,7 @@
             NSData *data = [anInvocation messageArgumentDataAtIndex:_argumentIndex];
             _argument = [KWValue valueWithBytes:[data bytes] objCType:objCType];
         }
+        [self didChangeValueForKey:@"argument"];
     }
 }
 
