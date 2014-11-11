@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
       $(SDKROOT)/Developer/Library/Frameworks
       $(inherited)
       $(DEVELOPER_FRAMEWORKS_DIR)
+      $(PLATFORM_DIR)/Developer/Library/Frameworks
     ].join(' '),
     "FRAMEWORK_SEARCH_PATHS[sdk=iphoneos8.0]" => %w[
       $(inherited)
